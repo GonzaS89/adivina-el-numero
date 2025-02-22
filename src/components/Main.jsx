@@ -5,20 +5,29 @@ import { Container_inputs } from './Container_inputs'
 
 export const Main = () => {
 
-  const [num, setNum] = useState('')
+  const [num, setNum] = useState('');
+  const [numerosIntentados, setNumerosIntentados] = useState([]);
+  const [numerosConcatenados, setNumerosConcatenados] = useState([]);
 
-  const numUnidos = num => {
-    setNum(num)
+  const numUnidos = num => { 
+    setNum(num);
   }
 
+  const numUnidosConcat = num => {
+    setNumerosConcatenados([...numerosConcatenados, num])
+  }
+  
   useEffect(() => {
-    console.log(num)
+    setNumerosIntentados([...numerosIntentados, num])
   },[num])
+
+  
 
   return (
     <div className='flex flex-col justify-center items-center h-[500px] relative'>
-    <Objetivo />
-    <Container_inputs numerosUnidos={numUnidos}/>
+    <Objetivo numIngresados={num}/>
+    <p>Numeros intentados: {numerosConcatenados.join("-")}</p>
+    <Container_inputs numerosUnidos={numUnidos} numerosUnidosConcatenados={numUnidosConcat}/>
     </div>
  
   )
