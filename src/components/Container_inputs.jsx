@@ -11,7 +11,7 @@ export const Container_inputs = ({numerosUnidos, numerosUnidosConcatenados}) => 
     const [num2,setNum2] = useState('');
     const [num3,setNum3] = useState('');
     const [num4,setNum4] = useState('');
-    const [inputReset, setInputReset] = useState(false);
+    const [inputReset, setInputReset] = useState();
 
     const obtenerNum1 = num => {
         setNum1(num)
@@ -27,10 +27,11 @@ export const Container_inputs = ({numerosUnidos, numerosUnidosConcatenados}) => 
     }
 
     const enviarDatosAlMain = () => {
-        numerosUnidos([{num1},{num2},{num3},{num4}])
+        numerosUnidos([num1,num2,num3,num4])
         numerosUnidosConcatenados(`${num1}${num2}${num3}${num4}`);
-        setInputReset(true)
+        setInputReset('')
     }
+    
 
   return (
     <div className='absolute bottom-0 flex flex-col gap-5 items-center'>
