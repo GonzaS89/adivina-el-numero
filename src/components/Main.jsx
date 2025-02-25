@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Objetivo } from './objetivo'
 import { Container_inputs } from './Container_inputs'
+import { Resultado } from './Resultado';
 
 
 export const Main = () => {
@@ -34,7 +34,7 @@ export const Main = () => {
 
   return (
     <div className='flex flex-col justify-center items-center h-[500px] relative'>
-    <Objetivo numIngresados={num} listaIntentados={listaIntentados}/>
+    <Resultado numIngresados={num} listaIntentados={listaIntentados}/>
     <p>{intentos.map(obj => (obj.coincidencias === 4 && 'Protis'))}</p>
     <p>Numeros intentados: {intentosRealizados}</p>
     <Container_inputs numerosUnidos={numUnidos} numerosUnidosConcatenados={numUnidosConcat}/>
