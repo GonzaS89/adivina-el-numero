@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import { FaCheckCircle } from "react-icons/fa";
 import { IngresoNum1 } from './IngresoNum1';
 import { IngresoNum2 } from './IngresoNum2';
@@ -12,6 +12,7 @@ export const Container_inputs = ({numerosUnidos, numerosUnidosConcatenados}) => 
     const [num3,setNum3] = useState('');
     const [num4,setNum4] = useState('');
     const [inputReset, setInputReset] = useState();
+    const [arrayIngresados, setArrayIngresados] = useState([]);
 
     const obtenerNum1 = num => {
         setNum1(num)
@@ -39,7 +40,7 @@ export const Container_inputs = ({numerosUnidos, numerosUnidosConcatenados}) => 
         <IngresoNum1 numIngresado={obtenerNum1} inputReset={inputReset}/>
         <IngresoNum2 numIngresado={obtenerNum2} inputReset={inputReset}/>
         <IngresoNum3 numIngresado={obtenerNum3} inputReset={inputReset}/>
-        <IngresoNum4 numIngresado={obtenerNum4} inputReset={inputReset}/>
+        <IngresoNum4 numIngresado={obtenerNum4} inputReset={inputReset} arrayIngresados={arrayIngresados}/>
     </div>
     <FaCheckCircle className='text-green-600 text-5xl cursor-pointer'onClick={enviarDatosAlMain}/>
     </div>
